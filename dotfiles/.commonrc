@@ -210,6 +210,9 @@ alias dc="docker compose"
 alias up="docker compose up"
 alias down="docker compose down"
 
+# python
+alias py="python3"
+
 # other
 alias init="git init && pre-commit install && poetry install"
 alias pre="pre-commit install && pre-commit run --all-files"
