@@ -1,0 +1,33 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH="$HOME/bin:/usr/local/bin:$PATH"
+# Poetry path
+# export PATH="/home/tj/.local/bin/poetry:$PATH"
+# export PATH="/home/tj/.cache/pypoetry/virtualenvs/fka-databricks-GAMMsPWM-py3.10/bin/python:$PATH"
+# export PYTHONPATH="/home/tj/.cache/pypoetry/virtualenvs/fka-databricks-GAMMsPWM-py3.10/lib/python3.10/site-packages:$PYTHONPATH"
+
+
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+# alias dev="cd ../../mnt/c/dev"
+
+. ~/.dotfiles/.commonrc
+
+export HISTSIZE=1000
+export SAVEHIST=2000
+
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
+# Path to your oh-my-zsh installation.
+export ZSH="~/.oh-my-zsh"
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+HIST_STAMPS="yyyy-mm-dd"
+zstyle ':omz:update' mode auto
+# Standard plugins can be found in $ZSH/plugins/
+plugins=(git gh fzf pip python poetry poetry-env)
+. "$ZSH/oh-my-zsh.sh"
+
+eval "$(starship init bash)"
+eval "$(mcfly init bash)"
+eval "$(zoxide init bash)"
