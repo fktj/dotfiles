@@ -30,10 +30,10 @@ curl -sS https://webinstall.dev/zoxide | bash
 
 # Ensure dotfiles are downloaded.
 mkdir -p ~/.dotfiles
-wget -O ~/.dotfiles/starship.toml "https://raw.githubusercontent.com/danhje/dotfiles/main/.dotfiles/starship.toml"
-wget -O ~/.dotfiles/.commonrc "https://raw.githubusercontent.com/danhje/dotfiles/main/.dotfiles/.commonrc"
-wget -O ~/.dotfiles/.zshrc "https://raw.githubusercontent.com/danhje/dotfiles/main/.dotfiles/.zshrc"
-wget -O ~/.dotfiles/.bashrc "https://raw.githubusercontent.com/danhje/dotfiles/main/.dotfiles/.bashrc"
+wget -O ~/.dotfiles/starship.toml "https://raw.githubusercontent.com/fktj/dotfiles/main/.dotfiles/starship.toml"
+wget -O ~/.dotfiles/.commonrc "https://raw.githubusercontent.com/fktj/dotfiles/main/.dotfiles/.commonrc"
+wget -O ~/.dotfiles/.zshrc "https://raw.githubusercontent.com/fktj/dotfiles/main/.dotfiles/.zshrc"
+wget -O ~/.dotfiles/.bashrc "https://raw.githubusercontent.com/fktj/dotfiles/main/.dotfiles/.bashrc"
 
 # Ensure dotfiles are symlinked.
 case $shell_name in
