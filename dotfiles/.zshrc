@@ -24,8 +24,9 @@ export ZSH="~/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 HIST_STAMPS="yyyy-mm-dd"
 zstyle ':omz:update' mode auto
-# Standard plugins can be found in $ZSH/plugins/
-plugins=(git gh fzf pip python poetry poetry-env)
+# Standard plugins is in $ZSH/plugins/ 
+# More: https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
+plugins=(git gh fzf pip python poetry poetry-env starship)
 . "$ZSH/oh-my-zsh.sh"
 
 eval "$(starship init bash)"
