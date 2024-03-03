@@ -10,9 +10,23 @@ echo "$user_name"
 # Get shell name
 shell_name=$(sh -c 'ps -p $$ -o ppid=' | xargs ps -o comm= -p)
 
-sudo apt update -y && \
-sudo apt upgrade -y && \
-sudo apt autoremove -y
+
+# Function to install a package if it's not already installed
+install_package() {
+    if ! command -v $1 &> /dev/null
+    then
+        echo "Installing $1"
+        sudo apt install $1 -y
+    else
+        echo "$1 is already installed."
+    fi
+}
+
+# Array of packages to install
+packages=("unzip" "zsh" "gh" "gnupg")
+
+# Update and upgrade packages
+sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y
 
 # Install basic packages
 echo "Do you want to setup basics? (yes/no)"
@@ -279,7 +293,6 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
     poetry_version=$(poetry --version)
     echo "Poetry: $poetry_version"
     sleep 3
-
 
 
     ubuntu_version=$(lsb_release -d)

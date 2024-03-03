@@ -13,6 +13,8 @@
 
 . ~/.dotfiles/.commonrc
 
+# Poetry path
+export PATH="$HOME/.local/bin:$PATH"
 export HISTSIZE=1000
 export SAVEHIST=2000
 
@@ -32,3 +34,4 @@ plugins=(git gh fzf pip python poetry poetry-env starship)
 eval "$(starship init bash)"
 eval "$(mcfly init bash)"
 eval "$(zoxide init bash)"
+#eval "$(direnv hook zsh)"
