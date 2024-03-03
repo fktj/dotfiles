@@ -58,7 +58,7 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
     done
 
     # Check if certain commands are installed, if not install them
-    commands=( "databricks" "az" "git-credential-manager" "mcfly" "zoxide" "zsh" "starship" )
+    commands=( "databricks" "az" "git-credential-manager" "zoxide" "zsh" "starship" ) # "mcfly"
 
     for command in "${commands[@]}"
     do
@@ -87,9 +87,9 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
                 "git-credential-manager")
                     wget "https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.4.1/gcm-linux_amd64.2.4.1.deb" -O /tmp/gcmcore.deb && sudo dpkg -i /tmp/gcmcore.deb
                     ;;
-                "mcfly")
-                    curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly --to $user_home/.local/bin
-                    ;;
+                #"mcfly")
+                #    curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly --to $user_home/.local/bin
+                #    ;;
                 "zoxide")
                     curl -sS https://webinstall.dev/zoxide | bash
                     ;;
