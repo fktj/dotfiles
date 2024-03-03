@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "Please enter your email:"
 read user_email
@@ -187,3 +187,4 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
     cat ~/.ssh/id_rsa.pub
     echo "######### Done  #########"
     echo "Remember to move or symlink any local rc to ~/.localrc"
+fi

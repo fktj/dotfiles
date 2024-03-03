@@ -31,7 +31,7 @@ zstyle ':omz:update' mode auto
 plugins=(git gh fzf pip python poetry poetry-env starship)
 . "$ZSH/oh-my-zsh.sh"
 
-eval "$(starship init bash)"
-eval "$(mcfly init bash)"
-eval "$(zoxide init bash)"
+eval "$(starship init zsh)"
+eval "$(mcfly init zsh)"
+eval "$(zoxide init zsh)"
 #eval "$(direnv hook zsh)"
