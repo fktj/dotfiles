@@ -9,7 +9,7 @@ My dotfiles
 To get this config without any modification:
 
 ```shell
-sudo source <(curl -fsSL https://raw.githubusercontent.com/fktj/dotfiles/main/setup.sh)
+source <(curl -fsSL https://raw.githubusercontent.com/fktj/dotfiles/main/setup.sh)
 ```
 
 ⚠️ Warning, this will irrevocably replace your config with mine, and install a bunch of stuff on your system.
