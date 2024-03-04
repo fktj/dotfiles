@@ -12,7 +12,7 @@ fi
 if [ -n "$SUDO_USER" ]; then
     user_home=$(getent passwd $SUDO_USER | cut -d: -f6)
 else
-    user_home=$user_home
+    user_home=$HOME
 fi
 
 shell_name=$(basename $SHELL)
@@ -46,8 +46,10 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
                 "gh" \
                 "git" \
                 "python3-pip" \
+                "gnupg" \
                 "pipx" \
                 "ca-certificates" \
+                "apt-transport-https" \
                 "curl" \
                 "lsb-release" 
             )
@@ -58,7 +60,7 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
     done
 
     # Check if certain commands are installed, if not install them
-    commands=( "databricks" "az" "git-credential-manager" "zoxide" "zsh" "starship" ) # "mcfly"
+    commands=( "databricks" "az" "git-credential-manager" "mcfly" "zoxide" "zsh" "starship" )
 
     for command in "${commands[@]}"
     do
@@ -78,7 +80,7 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
                     curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sudo sh
                     ;;
                 "az")
-                    curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpgv --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
+                    curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
                     AZ_REPO=$(lsb_release -cs)
                     echo "deb [arch=`dpkg --print-architecture` signed-by=/etc/apt/trusted.gpg.d/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
                     sudo apt update
@@ -87,9 +89,9 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
                 "git-credential-manager")
                     wget "https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.4.1/gcm-linux_amd64.2.4.1.deb" -O /tmp/gcmcore.deb && sudo dpkg -i /tmp/gcmcore.deb
                     ;;
-                #"mcfly")
-                #    curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly --to $user_home/.local/bin
-                #    ;;
+                "mcfly")
+                    curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly --to $user_home/.local/bin
+                    ;;
                 "zoxide")
                     curl -sS https://webinstall.dev/zoxide | bash
                     ;;
@@ -111,7 +113,7 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
     done
 
     # Ensure dotfiles are downloaded.
-    mkdir -p $user_home/.dotfiles || echo "Failed to create directory $user_home/.dotfiles"
+    mkdir -p $user_home/.dotfiles || echo "---->Failed to create directory $user_home/.dotfiles" >> setuplog.txt
     wget -N -P $user_home/.dotfiles/ "https://raw.githubusercontent.com/fktj/dotfiles/main/.dotfiles/starship.toml"
     wget -N -P $user_home/.dotfiles/ "https://raw.githubusercontent.com/fktj/dotfiles/main/.dotfiles/.commonrc"
     wget -N -P $user_home/.dotfiles/ "https://raw.githubusercontent.com/fktj/dotfiles/main/.dotfiles/.zshrc"
@@ -145,18 +147,14 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
 
     # Set pipx path and add poetry
     pipx ensurepath
-    source $user_home/.bashrc || source $user_home/.zshrc
-    pipx_version=$(pipx --version)
-    pipx install poetry
-    source $user_home/.bashrc || source $user_home/.zshrc
-    pipx upgrade poetry
     export PATH="$user_home/.local/bin:$PATH"
-    poetry_version=$(poetry --version)
+    source $user_home/.bashrc || source $user_home/.zshrc
+    pipx install poetry
+    pipx upgrade poetry
  
-    # Set global git config
+    # Set git global config
     echo "Do you want to set global git config? (yes/no)"
     read answer
-
     if [ "$answer" != "${answer#[Yy]}" ] ;then
         # Set git global config 
         git config --global user.email $user_email
