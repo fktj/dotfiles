@@ -51,7 +51,8 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
                 "curl" \
                 "lsb-release" \
                 "fontconfig" \
-                "pyenv"
+                "pyenv" \
+                "python3-poetry"
             )
 
     for package in "${packages[@]}"
@@ -88,9 +89,6 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
                     ;;
                 "git-credential-manager")
                     wget "https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.4.1/gcm-linux_amd64.2.4.1.deb" -O /tmp/gcmcore.deb && sudo dpkg -i /tmp/gcmcore.deb
-                    ;;
-                "poetry")
-                    curl -sSL https://install.python-poetry.org | python3 -
                     ;;
             esac
         else
