@@ -49,7 +49,8 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
                 "ca-certificates" \
                 "apt-transport-https" \
                 "curl" \
-                "lsb-release" 
+                "lsb-release" \
+                "fontconfig"
             )
 
     for package in "${packages[@]}"
