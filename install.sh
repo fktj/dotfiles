@@ -1,17 +1,14 @@
 #!/bin/sh
 
-# Get shell name
-shell_name=$(sh -c 'ps -p $$ -o ppid=' | xargs ps -o comm= -p)
-
 # Ensure the Fira Code Nerd Font is installed.
-mkdir -p ~/.local/share/fonts/
+mkdir -v -p ~/.local/share/fonts/
 for type in Bold Light Medium Regular Retina; do 
 wget -nc -O ~/.local/share/fonts//FiraCode-$type.ttf "https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/$type/complete/Fira%20Code%20$type%20Nerd%20Font%20Complete.ttf?raw=true"; 
 done
 fc-cache -f ~/.local/share/fonts/
 
 # Ensure Starship is installed and up to date.
-mkdir -p ~/.local/bin
+mkdir -v -p ~/.local/bin
 sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --force --bin-dir ~/.local/bin
 export PATH="~/.local/bin:$PATH"
 
@@ -22,38 +19,28 @@ curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh 
 curl -sS https://webinstall.dev/zoxide | bash
 
 # Ensure dotfiles are downloaded.
-mkdir -p ~/.dotfiles
+mkdir -v -p ~/.dotfiles
 wget -O ~/.dotfiles/starship.toml "https://raw.githubusercontent.com/fktj/dotfiles/main/.dotfiles/starship.toml"
 wget -O ~/.dotfiles/.commonrc "https://raw.githubusercontent.com/fktj/dotfiles/main/.dotfiles/.commonrc"
 wget -O ~/.dotfiles/.zshrc "https://raw.githubusercontent.com/fktj/dotfiles/main/.dotfiles/.zshrc"
 wget -O ~/.dotfiles/.bashrc "https://raw.githubusercontent.com/fktj/dotfiles/main/.dotfiles/.bashrc"
 
-# Ensure dotfiles are symlinked.
-case $shell_name in
-    *"zsh"* )
-        echo "Creating zsh symlinks..."
-        rm -v -f ~/.zshrc
-        ln -v -s ~/.dotfiles/.zshrc ~/.zshrc
-        ;;
-    *"bash"* )
-        echo "Creating bash symlinks..."
-        rm -v -f ~/.bashrc
-        ln -v -s ~/.dotfiles/.bashrc ~/.bashrc
-        ;;
-esac
+
+echo "Creating zsh symlinks..."
+rm -v -f ~/.zshrc
+ln -v -s ~/.dotfiles/.zshrc ~/.zshrc
+        
+echo "Creating bash symlinks..."
+rm -v -f ~/.bashrc
+ln -v -s ~/.dotfiles/.bashrc ~/.bashrc
+
 mkdir -v -p ~/.config
 rm -v -f ~/.config/starship.toml
 ln -v -s ~/.dotfiles/starship.toml ~/.config/starship.toml
 
 # Source dotfiles.
-case $shell_name in
-    *"zsh"* )
-        test -e ~/.zshrc && . ~/.zshrc
-        ;;
-    *"bash"* )
-        test -e ~/.bashrc && . ~/.bashrc
-        ;;
-esac
+test -e ~/.zshrc && . ~/.zshrc
+test -e ~/.bashrc && . ~/.bashrc
 
 # Finished
 echo "Done. Remember to move or symlink any local rc to ~/.localrc"
