@@ -50,7 +50,8 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
                 "apt-transport-https" \
                 "curl" \
                 "lsb-release" \
-                "fontconfig"
+                "fontconfig" \
+                "pyenv"
             )
 
     for package in "${packages[@]}"
