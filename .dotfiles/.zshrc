@@ -1,19 +1,11 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH="$HOME/bin:/usr/local/bin:$PATH"
-# Poetry path
-export PATH="/home/tj/.local/bin/poetry:$PATH"
-export PATH="/home/tj/.cache/pypoetry/virtualenvs/fka-databricks-GAMMsPWM-py3.10/bin/python:$PATH"
-export PYTHONPATH="/home/tj/.cache/pypoetry/virtualenvs/fka-databricks-GAMMsPWM-py3.10/lib/python3.10/site-packages:$PYTHONPATH"
-
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias dev="cd ../../mnt/c/dev"
 
 . ~/.dotfiles/.commonrc
 
-# Poetry path
+export PATH="/home/tj/.local/bin/poetry:$PATH"
+export PATH="/home/tj/.cache/pypoetry/virtualenvs/fka-databricks-GAMMsPWM-py3.10/bin/python:$PATH"
+export PYTHONPATH="/home/tj/.cache/pypoetry/virtualenvs/fka-databricks-GAMMsPWM-py3.10/lib/python3.10/site-packages:$PYTHONPATH"
 export PATH="$HOME/.local/bin:$PATH"
 export HISTSIZE=1000
 export SAVEHIST=2000
