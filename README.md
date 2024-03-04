@@ -26,7 +26,7 @@ Provides a better shell user experience
 ![Figure](https://github.com/fktj/dotfiles/blob/be691c4fa8a0108d875ffc71e1a09d0ddf92a619/explanation.png)
 
 ```shell
-source <(curl -fsSL https://raw.githubusercontent.com/fjtk/dotfiles/main/install.sh)
+source <(curl -fsSL https://raw.githubusercontent.com/fktj/dotfiles/main/install.sh)
 ```
 
 ⚠️ Warning, this will irrevocably replace your config with mine, and install a bunch of stuff on your system.
