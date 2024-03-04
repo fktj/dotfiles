@@ -72,5 +72,20 @@ cat setuplog.txt
 ```shell
 cat setuplog.txt
 ```
+Install poetry
+```shell
+curl -sSL https://install.python-poetry.org | python3 -
+```
 
+```shell
+poetry --version
+```
+Navigate to project
+```shell
+poetry shell
+```
+
+```shell
+poetry install
+```
 
