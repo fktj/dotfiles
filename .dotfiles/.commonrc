@@ -230,7 +230,7 @@ alias t="poetry run pytest"
 alias ts="pytest --log-cli-level=100 -p no:warnings"
 alias listfunc="compgen -A function | grep \"^[^_]\""
 alias now='date +"%s"'
-alias dev="../../mnt/c/dev"
+alias dev="cd ../../mnt/c/dev"
 
 
 mcd() {
