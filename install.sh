@@ -31,17 +31,19 @@ wget -O ~/.dotfiles/.bashrc "https://raw.githubusercontent.com/fktj/dotfiles/mai
 # Ensure dotfiles are symlinked.
 case $shell_name in
     *"zsh"* )
-        rm -f ~/.zshrc
-        ln -s ~/.dotfiles/.zshrc ~/.zshrc
+        echo "Creating zsh symlinks..."
+        rm -v -f ~/.zshrc
+        ln -v -s ~/.dotfiles/.zshrc ~/.zshrc
         ;;
     *"bash"* )
-        rm -f ~/.bashrc
-        ln -s ~/.dotfiles/.bashrc ~/.bashrc
+        echo "Creating bash symlinks..."
+        rm -v -f ~/.bashrc
+        ln -v -s ~/.dotfiles/.bashrc ~/.bashrc
         ;;
 esac
-mkdir -p ~/.config
-rm -f ~/.config/starship.toml
-ln -s ~/.dotfiles/starship.toml ~/.config/starship.toml
+mkdir -v -p ~/.config
+rm -v -f ~/.config/starship.toml
+ln -v -s ~/.dotfiles/starship.toml ~/.config/starship.toml
 
 # Source dotfiles.
 case $shell_name in
