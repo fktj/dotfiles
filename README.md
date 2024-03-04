@@ -89,3 +89,9 @@ poetry shell
 poetry install
 ```
 
+You can use this to install the extensions for vs code ( you might have to run it from within the vs code terminal)
+```shell
+curl -o vscode-extensions-list.txt https://raw.githubusercontent.com/fktj/dotfiles/main/vscode-extensions-list.txt
+cat vscode-extensions-list.txt | xargs -L 1 code --install-extension
+```
+
