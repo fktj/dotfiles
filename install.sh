@@ -4,18 +4,11 @@
 shell_name=$(sh -c 'ps -p $$ -o ppid=' | xargs ps -o comm= -p)
 
 # Ensure the Fira Code Nerd Font is installed.
-case $OSTYPE in
-    "darwin"* )
-        # MacOS
-        mkdir -p ~/Library/Fonts/
-        for type in Bold Light Medium Regular Retina; do wget -nc -O ~/Library/Fonts//FiraCode-$type.ttf "https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/$type/complete/Fira%20Code%20$type%20Nerd%20Font%20Complete.ttf?raw=true"; done
-        ;;
-    * )
-        mkdir -p ~/.local/share/fonts/
-        for type in Bold Light Medium Regular Retina; do wget -nc -O ~/.local/share/fonts//FiraCode-$type.ttf "https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/$type/complete/Fira%20Code%20$type%20Nerd%20Font%20Complete.ttf?raw=true"; done
-        fc-cache -f ~/.local/share/fonts/
-        ;;
-esac
+mkdir -p ~/.local/share/fonts/
+for type in Bold Light Medium Regular Retina; do 
+wget -nc -O ~/.local/share/fonts//FiraCode-$type.ttf "https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/$type/complete/Fira%20Code%20$type%20Nerd%20Font%20Complete.ttf?raw=true"; 
+done
+fc-cache -f ~/.local/share/fonts/
 
 # Ensure Starship is installed and up to date.
 mkdir -p ~/.local/bin
