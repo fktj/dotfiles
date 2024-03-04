@@ -231,6 +231,11 @@ alias ts="pytest --log-cli-level=100 -p no:warnings"
 alias listfunc="compgen -A function | grep \"^[^_]\""
 alias now='date +"%s"'
 alias dev="cd /mnt/c/dev"
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 
 
 mcd() {
