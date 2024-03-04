@@ -42,10 +42,32 @@ updot
 Any system-specific config should be placed in ~/.localrc. Don't edit ~/.bashrc or ~/.zshrc locally, these will be overwritten when updating as described above.
 
 ```shell
-source .dotfiles/.bashrc
+rm -f ~/.bashrc
+```
+
+```shell
+ln -s ~/.dotfiles/.bashrc ~/.bashrc
+```
+
+```shell
+source ~/.config/envman/PATH.env
 ```
 
 ```shell
 source .dotfiles/.commonrc
 ```
+
+```shell
+source .dotfiles/.bashrc
+```
+
+```shell
+cat ./.bashrc
+```
+
+```shell
+source .dotfiles/.bashrc
+```
+
+
 
