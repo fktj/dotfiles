@@ -66,8 +66,11 @@ cat ./.bashrc
 ```
 
 ```shell
-source .dotfiles/.bashrc
+cat setuplog.txt
 ```
 
+```shell
+cat setuplog.txt
+```
 
 
