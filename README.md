@@ -109,13 +109,15 @@ az login
 databricks configure
 ```
 
-Insert hostname and PAT and then run
+Insert the hostname to the databricks development environment and your PAT
+
 ```Shell
 databricks tokens list
 ```
-you should now see your token
+! you should now see your token
 
-Navigate to the project and open vscode.
+Navigate to the project and open vscode
+
 ```Shell
 code .
 ```
