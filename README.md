@@ -95,3 +95,35 @@ curl -o vscode-extensions-list.txt https://raw.githubusercontent.com/fktj/dotfil
 cat vscode-extensions-list.txt | xargs -L 1 code --install-extension
 ```
 
+Configure you path for poetry and make sure test_setup.py works without
+
+When you have got your poetry environment setup check that setup_test.py is working correctly
+
+#### Setup databricks connect
+In order to make this work you have to authenticate with azure
+```Shell
+az login
+```
+
+```Shell
+databricks configure
+```
+
+Insert hostname and PAT and then run
+```Shell
+databricks tokens list
+```
+you should now see your token
+
+Navigate to the project and open vscode.
+```Shell
+code .
+```
+
+Configure databricks connect
+- Click on the databricks vs code extension
+- Click on `Configure`
+- Choose `Azure CLI`
+
+  Once configured you can run the file test_databricks.py to verify that it works as expected.
+  It will give you the 5 first rows of new york taxt sample data. 
