@@ -128,4 +128,21 @@ Configure databricks connect
 - Choose `Azure CLI`
 
   Once configured you can run the file test_databricks.py to verify that it works as expected.
-  It will give you the 5 first rows of new york taxt sample data. 
+  It will give you the 5 first rows of new york taxt sample data.
+
+
+### Setup git
+```Shell
+git config --global credential.credentialStore gpg
+```
+
+```Shell
+gpg --gen-key
+```
+
+Insert real name and email
+Copy the key id
+
+```Shell
+pass init <id>
+```
