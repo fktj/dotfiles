@@ -45,6 +45,7 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
                 "git" \
                 "python3-pip" \
                 "gnupg" \
+                "pass" \
                 "pipx" \
                 "ca-certificates" \
                 "apt-transport-https" \
