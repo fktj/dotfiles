@@ -51,7 +51,8 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
                 "apt-transport-https" \
                 "curl" \
                 "lsb-release" \
-                "fontconfig"
+                "fontconfig" \
+                "npm"
             )
 
     for package in "${packages[@]}"
