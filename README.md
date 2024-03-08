@@ -146,3 +146,9 @@ Copy the key id
 ```Shell
 pass init <id>
 ```
+
+Navigate to project and run 
+```Shell
+git pull
+```
+
