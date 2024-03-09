@@ -70,11 +70,8 @@ cat ./.bashrc
 cat setuplog.txt
 ```
 
-```shell
-cat setuplog.txt
-```
 
-Open vs code by using `code` command, close the application again and verify that you now have a folder called .vscode-server in your home directory. If that is the case you can install extentions like this. 
+Open vs code by using `code .` command, close the application again and verify that you now have a folder called .vscode-server in your home directory. If that is the case you can install extentions like this. 
 ```shell
 ./vs-code-ext.sh
 ```
