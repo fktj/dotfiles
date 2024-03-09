@@ -146,9 +146,16 @@ Copy the key id
 pass init <id>
 ```
 
+Also add
+```shell
+pass insert dev.azure.com
+```
+Configure your .gitconfig file (the path for the helper should be from `which git-credential-manager`
 ```Shell
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
+git config --global credential.helper /usr/local/bin/git-credential-manager
+git config --global credential.credentialStore gpg
 ```
 
 Navigate to project and run 
