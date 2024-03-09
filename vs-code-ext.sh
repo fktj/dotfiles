@@ -17,14 +17,14 @@ then
     exit 1
 fi
 
-# Fetch the list of extensions and install each one
-echo "Fetching list of extensions from $EXTENSIONS_URL"
-curl -sS $EXTENSIONS_URL | while IFS= read -r extension
-do
-    # Install each extension
-    if [ ! -z "$extension" ]; then # Check if the line is not empty
-        echo "Installing $extension..."
-        code --install-extension "$extension"
+# Fetch the list and install extensions
+echo "Fetching extension list from $EXTENSIONS_URL"
+curl -s $EXTENSIONS_URL | while read extension; do
+    if [ ! -z "$extension" ]; then  # Ensure the line is not empty
+        echo "Attempting to install $extension"
+        code --install-extension $extension --force
+    else
+        echo "Skipping empty line"
     fi
 done
 
