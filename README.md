@@ -8,11 +8,12 @@ To get quickly up and running run these commands on a fresh install
 
 ```shell
 curl -o setup.sh https://raw.githubusercontent.com/fktj/dotfiles/main/setup.sh && \
-curl -o install.sh https://raw.githubusercontent.com/fktj/dotfiles/main/install.sh
+curl -o install.sh https://raw.githubusercontent.com/fktj/dotfiles/main/install.sh && \
+curl -o vs-code-ext.sh https://raw.githubusercontent.com/fktj/dotfiles/main/vs-code-ext.sh
 ```
 
 ```shell
-chmod u+x setup.sh && chmod u+x install.sh
+chmod u+x setup.sh && chmod u+x install.sh && chomd +x vs-code-ext.sh
 ```
 
 ```shell
@@ -72,6 +73,12 @@ cat setuplog.txt
 ```shell
 cat setuplog.txt
 ```
+
+Open vs code by using `code` command, close the application again and verify that you now have a folder called .vscode-server in your home directory. If that is the case you can install extentions like this. 
+```shell
+./vs-code-ext.sh
+```
+
 Install poetry
 ```shell
 curl -sSL https://install.python-poetry.org | python3 -
@@ -89,11 +96,6 @@ poetry shell
 poetry install
 ```
 
-You can use this to install the extensions for vs code ( you might have to run it from within the vs code terminal)
-```shell
-curl -o vscode-extensions-list.txt https://raw.githubusercontent.com/fktj/dotfiles/main/vscode-extensions-list.txt
-cat vscode-extensions-list.txt | xargs -L 1 code --install-extension
-```
 
 Configure you path for poetry and make sure test_setup.py works without
 
