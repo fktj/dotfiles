@@ -13,7 +13,7 @@ curl -o vs-code-ext.sh https://raw.githubusercontent.com/fktj/dotfiles/main/vs-c
 ```
 
 ```shell
-chmod u+x setup.sh && chmod u+x install.sh && chomd +x vs-code-ext.sh
+chmod u+x setup.sh && chmod u+x install.sh && chmod +x vs-code-ext.sh
 ```
 
 ```shell
