@@ -154,8 +154,8 @@ Configure your .gitconfig file (the path for the helper should be from `which gi
 ```Shell
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
-git config --global credential.helper /usr/local/bin/git-credential-manager
-git config --global credential.credentialStore gpg
+git config --global credential.helper "/usr/local/bin/git-credential-manager"
+git config --global credential.credentialStore "gpg"
 ```
 
 Navigate to project and run 
