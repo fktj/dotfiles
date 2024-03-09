@@ -146,8 +146,13 @@ Copy the key id
 pass init <id>
 ```
 
+```Shell
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+```
+
 Navigate to project and run 
 ```Shell
 git pull
 ```
-
+Insert you PAT when it asks you for password
