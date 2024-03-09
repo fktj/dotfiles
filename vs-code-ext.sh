@@ -19,12 +19,12 @@ fi
 
 # Fetch the list and install extensions
 echo "Fetching extension list from $EXTENSIONS_URL"
-curl -s $EXTENSIONS_URL | while read extension; do
-    if [ ! -z "$extension" ]; then  # Ensure the line is not empty
+curl -s $EXTENSIONS_URL | while IFS= read -r extension; do
+    if [ -n "$extension" ]; then  # Ensure the line is not empty
         echo "Attempting to install $extension"
-        code --install-extension $extension --force
+        code --install-extension "$extension" --force || echo "Failed to install $extension"
     else
-        echo "Skipping empty line"
+        echo "Encountered an empty line, skipping..."
     fi
 done
 
