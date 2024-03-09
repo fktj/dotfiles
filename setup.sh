@@ -104,10 +104,23 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
     echo "Do you want to set global git config? (yes/no)"
     read answer
     if [ "$answer" != "${answer#[Yy]}" ] ;then
-        # Set git global config 
-        git config --global user.email $user_email
-        git config --global user.name $user_name
-        git config --global credential.helper "$(which git-credential-manager)"
+
+        # Find the path to git-credential-manager
+        credential_manager_path=$(which git-credential-manager)
+
+        # Check if git-credential-manager was found
+        if [ -z "$credential_manager_path" ]; then
+            echo "git-credential-manager not found. Please ensure it's installed and in your PATH."
+            exit 1
+        fi
+           # Set git global config 
+        git config --global user.email "$user_email"
+        git config --global user.name "$user_name"
+        git config --global credential.helper "$credential_manager_path"
+        git config --global credential.credentialStore "gpg"
+        echo "Git global configuration has been updated."
+    else
+        echo "Skipping git global config setup."
     fi
 
     unzip_version="unsip: $(unzip -v | head -n 1)"
