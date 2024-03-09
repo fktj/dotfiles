@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # URL of the extensions list
-EXTENSIONS_URL="https://raw.githubusercontent.com/fktj/dotfiles/main/vscode-extensions-list.txt"
+EXTENSIONS_URL="https://raw.githubusercontent.com/fktj/dotfiles/main/.dotfiles/vscode-extensions-list.txt"
 
 # Check if Visual Studio Code command 'code' is available
 if ! command -v code &> /dev/null
